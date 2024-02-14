@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obligatorisk oppgave 1</title>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+  <h1>Bestilling av kinobiletter</h1>
+  <div>
+      <label for="ulikeFilmer">Velg film: </label>
+      <select id="ulikeFilmer">
+          <option value="Velg film her">Velg film her</option>
+          <option value="Bambi">Bambi</option>
+          <option value="Mulan">Mukan</option>
+          <option value="Nemo">Nemo</option>
+          <option value="Aladdin">Aladdin</option>
+          <option value="Herkules">Herkules</option>
+          <option value="Tarzan">Tarzan</option>
+      </select>
+  </div>
+
+  <br> <!-- For å få mellomrom melom "velg film" og !antall seksjonene. -->
+
+  <div>
+      <label for="antall">Antall</label>
+      <input id="antall" type="number">
+      <span id="feil">Må skrive noe i antall</span>
+  </div>
+
+  <div>
+      <label for="fornavn">Fornavn</label>
+      <input id="fornavn" type="text">
+      <span id="feilFornavn"></span>
+  </div>
+
+</body>
+</html>
