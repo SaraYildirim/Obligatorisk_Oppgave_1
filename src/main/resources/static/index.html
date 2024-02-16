@@ -12,7 +12,7 @@
       <select id="ulikeFilmer">
           <option value="Velg film her">Velg film her</option>
           <option value="Bambi">Bambi</option>
-          <option value="Mulan">Mukan</option>
+          <option value="Mulan">Mulan</option>
           <option value="Nemo">Nemo</option>
           <option value="Aladdin">Aladdin</option>
           <option value="Herkules">Herkules</option>
@@ -20,18 +20,48 @@
       </select>
   </div>
 
-  <br> <!-- For å få mellomrom melom "velg film" og !antall seksjonene. -->
+  <br> <!-- For å få mellomrom melom "velg film" og "antall" seksjonene. -->
 
   <div>
       <label for="antall">Antall</label>
       <input id="antall" type="number">
-      <span id="feil">Må skrive noe i antall</span>
+      <span id="skrivNoeAntall" style="color: red"></span>
   </div>
 
   <div>
       <label for="fornavn">Fornavn</label>
       <input id="fornavn" type="text">
-      <span id="feilFornavn"></span>
+      <span id="skrivNoeFornavn" style="color: red"></span>
+  </div>
+
+  <div>
+      <label for="etternavn">Etternavn</label>
+      <input id="etternavn" type="text">
+      <span id="skrivNoeEtternavn" style="color:red;"></span>
+  </div>
+
+  <div>
+      <label for="telefonnr">Telefonnr</label>
+      <input id="telefonnr" type="text">
+      <span id="skrivNoeTelefonnr" style="color: red"></span>
+  </div>
+
+  <div>
+      <label for="epost">Epost</label>
+      <input id="epost" type="text">
+      <span id="skrivNoeEpost" style="color: red"></span>
+  </div>
+
+  <div>
+      <button onclick="kjopBillett()">Kjøp billett</button>
+  </div>
+
+  <div id="liste">
+      <h2>Alle billetter</h2>
+  </div>
+
+  <div>
+      <button onclick="slettBilett()">Slett alle billettene</button>
   </div>
 
 </body>
