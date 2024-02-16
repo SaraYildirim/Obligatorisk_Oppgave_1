@@ -48,4 +48,26 @@ function kjopBillett(){
     }
 
     alleBilletter.push(kinoBillett);
+    liste();
+
+    document.getElementById("ulikeFilmer").value = "";
+    document.getElementById("antall").value = "";
+    document.getElementById("fornavn").value = "";
+    document.getElementById("etternavn").value = "";
+    document.getElementById("telefonnr").value = "";
+    document.getElementById("epost").value = "";
+}
+
+function liste() {
+    let output = "";
+    for (let i = 0; i < alleBilletter.length; i++){
+        output += alleBilletter[i].film+" "+alleBilletter[i].antall+" "+alleBilletter[i].fornavn+" "+alleBilletter[i].etternavn+" "+alleBilletter[i].telefonnr+" "+alleBilletter[i].epost;
+    }
+    document.getElementById("liste").innerHTML = output;
+}
+
+function slettBillett() {
+    alleBilletter = []
+    console.log(alleBilletter);
+    liste();
 }
