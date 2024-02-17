@@ -67,7 +67,7 @@ function liste() { /*Setter opp listen under 'Alle billetter'*/
     document.getElementById("liste").innerHTML = output;
 }
 
-function slettBillett() { /*Fjerner innholdet i inputboksen og listen*/
+function slettBillett() { /*Tømmer arrayet*/
     alleBilletter = []
     liste();
 }
