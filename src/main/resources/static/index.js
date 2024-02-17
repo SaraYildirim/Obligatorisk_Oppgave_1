@@ -1,6 +1,6 @@
-let alleBilletter = [];
+let alleBilletter = []; /*For å lagre kinobilletter*/
 
-function kjopBillett(){ /*Oppretter variabler*/
+function kjopBillett(){ /*Funksjon som kalles når man trykker på 'Kjøp billett'-knappen. Den henter verdier fra inpulfeltene*/
     let inputFilmer = document.getElementById("ulikeFilmer").value;
     let inputAntall = document.getElementById("antall").value;
     let inputFornavn = document.getElementById("fornavn").value;
@@ -8,7 +8,7 @@ function kjopBillett(){ /*Oppretter variabler*/
     let inputTelefonnr = document.getElementById("telefonnr").value;
     let inputEpost = document.getElementById("epost").value;
 
-    const kinoBillett = {
+    const kinoBillett = { /*Oppretter et objekt basert på verdiene fra inputfeltene*/
         film : inputFilmer,
         antall : inputAntall,
         fornavn : inputFornavn,
@@ -48,10 +48,10 @@ function kjopBillett(){ /*Oppretter variabler*/
         document.getElementById("skrivNoeEpost").innerHTML = "";
     }
 
-    alleBilletter.push(kinoBillett); /*Putter objektene som ble opprettet over inn i arrayet */
+    alleBilletter.push(kinoBillett); /*Putter objektet inn i arrayet */
     liste();
 
-    document.getElementById("ulikeFilmer").value = "";
+    document.getElementById("ulikeFilmer").value = ""; /*Tømmer inputfeltene etter man kjøper billett */
     document.getElementById("antall").value = "";
     document.getElementById("fornavn").value = "";
     document.getElementById("etternavn").value = "";
@@ -67,7 +67,7 @@ function liste() { /*Setter opp listen under 'Alle billetter'*/
     document.getElementById("liste").innerHTML = output;
 }
 
-function slettBillett() { /*Tømmer arrayet*/
+function slettBillett() { /*Funksjon som sletter alle billettene (tømmer arrayet)*/
     alleBilletter = []
     liste();
 }
