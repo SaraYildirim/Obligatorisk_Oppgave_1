@@ -1,5 +1,6 @@
 let alleBilletter = [];
-function kjopBillett(){
+
+function kjopBillett(){ /*Oppretter variabler*/
     let inputFilmer = document.getElementById("ulikeFilmer").value;
     let inputAntall = document.getElementById("antall").value;
     let inputFornavn = document.getElementById("fornavn").value;
@@ -16,7 +17,7 @@ function kjopBillett(){
         epost : inputEpost
     };
 
-    if (kinoBillett.antall === ""){
+    if (kinoBillett.antall === ""){ /*'condition statements' for å opprette inputvalideringer for inputfeltene, som utløses dersom et inputfelt er tomt*/
         document.getElementById("skrivNoeAntall").innerHTML = "Må skrive noe i antall";
     }
     else{
@@ -47,7 +48,7 @@ function kjopBillett(){
         document.getElementById("skrivNoeEpost").innerHTML = "";
     }
 
-    alleBilletter.push(kinoBillett);
+    alleBilletter.push(kinoBillett); /*Putter objektene som ble opprettet over inn i arrayet */
     liste();
 
     document.getElementById("ulikeFilmer").value = "";
@@ -58,7 +59,7 @@ function kjopBillett(){
     document.getElementById("epost").value = "";
 }
 
-function liste() {
+function liste() { /*Setter opp listen under 'Alle billetter'*/
     let output = "";
     for (let i = 0; i < alleBilletter.length; i++){
         output += alleBilletter[i].film+" "+alleBilletter[i].antall+" "+alleBilletter[i].fornavn+" "+alleBilletter[i].etternavn+" "+alleBilletter[i].telefonnr+" "+alleBilletter[i].epost;
@@ -66,8 +67,7 @@ function liste() {
     document.getElementById("liste").innerHTML = output;
 }
 
-function slettBillett() {
+function slettBillett() { /*Fjerner innholdet i inputboksen og listen*/
     alleBilletter = []
-    console.log(alleBilletter);
     liste();
 }
