@@ -8,6 +8,76 @@ function kjopBillett(){ /*Funksjon som kalles når man trykker på 'Kjøp billet
     let inputTelefonnr = document.getElementById("telefonnr").value;
     let inputEpost = document.getElementById("epost").value;
 
+    let validering = true;
+
+    if (inputFilmer === "") { /*Inputvalidering for valg av film*/
+        document.getElementById("skrivNoeFilm").innerHTML = "Må velge en film";
+        validering = false;
+    }
+    else {
+        document.getElementById("skrivNoeFilm").innerHTML = "";
+    }
+
+    if (inputAntall === "") { /*Inputvalidering for å skrive inn antall*/
+        document.getElementById("skrivNoeAntall").innerHTML = "Skriv noe i antall";
+        validering = false;
+    }
+    else {
+        document.getElementById("skrivNoeAntall").innerHTML = "";
+    }
+
+    if (inputFornavn === "") { /*Inputvalidering for å skrive inn gyldig fornavn*/
+        document.getElementById("skrivNoeFornavn").innerHTML = "Skriv noe i fornavn";
+        validering = false;
+    }
+    else if (!/[a-zA-Z ,.'æøåÆØÅ]+$/.test(inputFornavn)) {
+        document.getElementById("skrivNoeFornavn").innerHTML = "Vennligst skriv et gyldig fornavn";
+        validering = false;
+    }
+    else {
+        document.getElementById("skrivNoeFornavn").innerHTML = "";
+    }
+
+    if (inputEtternavn === "") { /*Inputvalidering for å skrive inn gyldig etternavn*/
+        document.getElementById("skrivNoeEtternavn").innerHTML = "Skriv noe i etternavn";
+        validering = false;
+    }
+    else if (!/[a-zA-Z ,.'æøåÆØÅ]+$/.test(inputEtternavn)) {
+        document.getElementById("skrivNoeEtternavn").innerHTML = "Vennligst skriv inn et gyldig etternavn";
+        validering = false;
+    }
+    else {
+        document.getElementById("skrivNoeEtternavn").innerHTML = "";
+    }
+
+    if (inputTelefonnr === "") { /*Inputvalidering for å skrive inn gyldig telefonnummer*/
+        document.getElementById("skrivNoeTelefonnr").innerHTML = "Skriv noe i telefonnummer";
+        validering = false;
+    }
+    else if (!/^\d{8}$/.test(inputTelefonnr)) {
+        document.getElementById("skrivNoeTelefonnr").innerHTML = "Vennligst skriv et gyldig telefonnummer";
+        validering = false;
+    }
+    else {
+        document.getElementById("skrivNoeTelefonnr").innerHTML = "";
+    }
+
+    if (inputEpost === "") { /*Inputvalidering for å skrive inn gyldig epost*/
+        document.getElementById("skrivNoeEpost").innerHTML = "Skriv noe i epost";
+        validering = false;
+    }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEpost)) {
+        document.getElementById("skrivNoeEpost").innerHTML = "Vennligst skriv en gyldig epost";
+        validering = false;
+    }
+    else {
+        document.getElementById("skrivNoeEpost").innerHTML = "";
+    }
+
+    if (!validering) { /*Hindrer 'kjopBillett' i å kjøre dersom noen av inputfeltene er ugyldige*/
+        return;
+    }
+
     const kinoBillett = { /*Oppretter et objekt basert på verdiene fra inputfeltene*/
         film : inputFilmer,
         antall : inputAntall,
@@ -16,43 +86,6 @@ function kjopBillett(){ /*Funksjon som kalles når man trykker på 'Kjøp billet
         telefonnr : inputTelefonnr,
         epost : inputEpost
     };
-    if (kinoBillett.film === ""){
-        document.getElementById("skrivNoeFilm").innerHTML = "Må velge en film";
-    }
-    else {
-        document.getElementById("skrivNoeFilm").innerHTML = "";
-    }
-
-    if (kinoBillett.antall === ""){ /*'condition statements' for å opprette inputvalideringer for inputfeltene, som utløses dersom et inputfelt er tomt*/
-        document.getElementById("skrivNoeAntall").innerHTML = "Må skrive noe i antall";
-    }
-    else{
-        document.getElementById("skrivNoeAntall").innerHTML = "";
-    }
-    if (kinoBillett.fornavn === ""){
-        document.getElementById("skrivNoeFornavn").innerHTML = "Må skrive noe i fornavnet";
-    }
-    else{
-        document.getElementById("skrivNoeFornavn").innerHTML = "";
-    }
-    if (kinoBillett.etternavn === ""){
-        document.getElementById("skrivNoeEtternavn").innerHTML = "Må skrive noe i etternavnet";
-    }
-    else{
-        document.getElementById("skrivNoeEtternavn").innerHTML = "";
-    }
-    if (kinoBillett.telefonnr === ""){
-        document.getElementById("skrivNoeTelefonnr").innerHTML = "Må skrive noe i telefonnr";
-    }
-    else{
-        document.getElementById("skrivNoeTelefonnr").innerHTML = "";
-    }
-    if (kinoBillett.epost === ""){
-        document.getElementById("skrivNoeEpost").innerHTML = "Må skrive noe i epost";
-    }
-    else{
-        document.getElementById("skrivNoeEpost").innerHTML = "";
-    }
 
     alleBilletter.push(kinoBillett); /*Putter objektet inn i arrayet */
     liste();
