@@ -7,10 +7,11 @@
 </head>
 <body>
   <h1>Bestilling av kinobiletter</h1>
+
   <div>
       <label for="ulikeFilmer">Velg film: </label>
-      <select id="ulikeFilmer">
-          <option value="Velg film her">Velg film her</option>
+      <select id="ulikeFilmer" required>
+          <option value="" disabled selected>Velg film her</option>
           <option value="Bambi">Bambi</option>
           <option value="Mulan">Mulan</option>
           <option value="Nemo">Nemo</option>
@@ -18,39 +19,40 @@
           <option value="Herkules">Herkules</option>
           <option value="Tarzan">Tarzan</option>
       </select>
+          <span id="skrivNoeFilm" style="color: red"></span>
   </div>
 
   <br> <!-- For å få mellomrom melom "velg film" og "antall" seksjonene. -->
 
   <div>
       <label for="antall">Antall</label>
-      <input id="antall" type="number">
+      <input id="antall" type="number" required>
       <span id="skrivNoeAntall" style="color: red"></span>
   </div>
 
-  <div>
+<div>
       <label for="fornavn">Fornavn</label>
-      <input id="fornavn" type="text">
+      <input id="fornavn" type="text" pattern="[a-z ,.-]{0,40}" required>
       <span id="skrivNoeFornavn" style="color: red"></span>
-  </div>
+</div>
 
-  <div>
+<div>
       <label for="etternavn">Etternavn</label>
-      <input id="etternavn" type="text">
+      <input id="etternavn" type="text" pattern="[a-z ,.-]{0,40}" required>
       <span id="skrivNoeEtternavn" style="color:red;"></span>
-  </div>
+</div>
 
-  <div>
+<div>
       <label for="telefonnr">Telefonnr</label>
-      <input id="telefonnr" type="text">
+      <input id="telefonnr" type="tel" pattern="[0-9]{8}" min="8" title="Vennligst skriv inn et gyldig telefonnr" required>
       <span id="skrivNoeTelefonnr" style="color: red"></span>
-  </div>
+</div>
 
-  <div>
+<div>
       <label for="epost">Epost</label>
-      <input id="epost" type="text">
+      <input id="epost" type="email" title="Vennligst skriv inn et gyldig telefonnr" required>
       <span id="skrivNoeEpost" style="color: red"></span>
-  </div>
+</div>
 
   <div>
       <button onclick="kjopBillett()">Kjøp billett</button>
